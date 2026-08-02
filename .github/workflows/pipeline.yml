@@ -22,3 +22,11 @@ jobs:
           python-version: "3.11"
       - run: pip install flake8
       - run: flake8 app.py test_app.py
+
+      secret_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
